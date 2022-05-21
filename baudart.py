@@ -1,4 +1,4 @@
-def baudot_art(filepath,newsize,name):
+def baudot_art(filepath,newsize):
     import PIL.Image
     image=None
     def closest(myList, myNumber):
@@ -22,7 +22,7 @@ def baudot_art(filepath,newsize,name):
         return image.convert("L")
     def pixel_to_ascii(image):
         pixels = image.getdata()
-        a=list('$8&#OAHKBDPQWM0ZCVUNXRJFT/()1-I!LI;:,"\'.'[::-1])
+        a=list('$8&#OAHKBDPQWM0ZCVUNXRJFT/()1-I!LI;:,"\'. '[::-1])
         pixlist=list(pixels)
         minp=min(pixlist)
         maxp=max(pixlist)
@@ -48,6 +48,4 @@ def baudot_art(filepath,newsize,name):
     ascii_img=""
     for i in range(0, ascii_str_len, img_width):
         ascii_img += ascii_str[i:i+img_width] + "\n"
-    with open("{}.txt".format(name), "w") as f:
-        f.write(ascii_img);
     return ascii_img
