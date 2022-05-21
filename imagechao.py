@@ -194,7 +194,7 @@ def translate_to_baudot(untranslatedtext):
     print(baudint)
     return baudtext
 if __name__=='__main__':
-    filepth='/storage/emulated/0/Download/images - 2022-05-06T235127.533.jpeg'
+    filepth=#drop the file path here
     (lalpha,ralpha)=get_key()
     msg=baudot_art(filepth,300)
     cyphertext=main(lalpha,ralpha,msg)
