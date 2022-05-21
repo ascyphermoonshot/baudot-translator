@@ -18,11 +18,10 @@ def translate_to_baudot(untranslatedtext):
         else:
             return ""
     def bell_check(text):
-        text=text.replace('bel','‽')
-        text=text.replace(r'\a','‽')
+        text=text.replace('\a','‽')
         return text
     def line_check(text):
-        text=text.replace(r'\n','∆')
+        text=text.replace('\n','∆')
         return text
     def strip_non_baud(text):
         for char in text:
@@ -42,9 +41,12 @@ def translate_to_baudot(untranslatedtext):
     text=bell_check(text)
     text=line_check(text)
     text=text.upper()
-    text=strip_non_baud(text)
+    text='‽‽‽∆'+strip_non_baud(text)+'∆‽‽‽'
     print(text)
     baudtext=text_to_baud(text)
-    pbaudtext=wrap(baudtext,5)
-    print(pbaudtext)
+    baudint=int(baudtext,2)
+    print(baudint)
     return baudtext
+if __name__=='__main__':
+    text=input('enter your text here: ')
+    translate_to_baudot('text')
